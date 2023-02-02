@@ -1,0 +1,20 @@
+
+STM32 USB Oscilloscope
+
+The aim of this project is to create a GUI for plotting and configuring the 
+USB Oscilloscope based on STM32.
+
+There are two types of programs: serial and parallel.
+
+Serial:
+    There is no plotting and is mainly used for creating and testing heavy improvements
+    of parallel backend. Data is obtained in the main thread and analyzed if needed.
+
+Parallel:
+    The main program of this project with a GUI for plotting and threading for better performance.
+    As for now, all the configuration is made in the first part of the code in the 
+    so called "CONFIG" section.
+    Plots are created using matplotlib and rendered in the main thread. Communication between
+    PC and STM32 is carried on the separate thread in an infinite loop.
+    This program is aware of keyboard interrupt, so it exits cleanly (with no zombie threads)
+    on CTRL+C or whatever.
